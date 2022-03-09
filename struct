@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <string.h>
+
+struct Book
+{
+	char name[20];
+	char author[20];
+	short price;
+};
+
+int main()
+{
+	struct Book a1 = { "败给了温柔","江萝萝",26 };
+	printf("书名：%s\n", a1.name);
+	printf("作者：%s\n", a1.author);
+	printf("价格：%d\n", a1.price);
+	strcpy(a1.name,"败给温柔");
+	printf("正确书名：%s\n", a1.name);
+	return 0;
+}
