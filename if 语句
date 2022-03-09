@@ -1,0 +1,64 @@
+#include <stdio.h>
+
+//判断一个人的年龄处于什么阶段
+int main()
+{
+	int age = 0;
+	printf("请输入年龄：");
+	scanf("%d", &age);
+  
+	if (age < 18)
+		printf("未成年\n");
+	else if (age >= 18 && age < 30)
+		printf("青年\n");
+	else if (age >= 30 && age < 60)
+		printf("壮年\n");
+	else if (age >= 60 && age < 90)
+		printf("老年\n");
+	else
+		printf("老神仙\n");
+	return 0;
+}
+
+//判断一个数是奇数还是偶数
+int main()
+{
+	int a = 0;
+	printf("请输入一个数：");
+	scanf("%d", &a);
+
+	if (0==a%2)
+		printf("这是偶数\n");
+	else
+		printf("这是奇数\n");
+
+	return 0;	
+}
+
+//将三个数从大到小排序
+int main()
+{
+	int a = 0, b = 0, c = 0, m = 0;
+	printf("请输入三个整数");
+	scanf("%d%d%d", &a, &b, &c);
+
+	if (a < b)
+	{
+		m = a;
+		a = b;
+		b = m;
+	}
+	if (b < c)
+	{
+		m = b;
+		b = c;
+		c = m;
+	}
+	if (a < b)
+	{
+		m = a;
+		a = b;
+		b = m;
+	}
+	printf("%d>%d>%d", a, b, c);
+	return 0;
