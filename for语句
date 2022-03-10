@@ -1,0 +1,133 @@
+#include <stdio.h>
+
+//计算1-100中一共出现了多少个数字9（如97出现了一个9）
+int main()
+{
+	int i = 0, j = 0;
+	for (i = 1; i <= 100; i++)
+	{
+		int m = 0, n = 0;
+		m = i / 10;   //算出十位所在的数字
+		n = i % 10;   //算出个位所在的数字
+		if (9 == m)   //判断十位所在数字是否是9
+			j++;
+		if (9 == n)   //判断个位所在数字是否为9
+			j++;
+	}
+	printf("一共有%d个9\n", j);   //打印出1-100中9的个数
+	return 0;
+}
+
+
+//输出100-200当中所有的质数
+//方法1
+int main()
+{
+	int a = 0, b = 0;
+	for (a = 100; a <= 200; a++)
+	{
+		for (b = 2; b < a/b && 0 != a%b; b++)
+		{
+			;
+		}
+		if (0 == a % b)
+			continue;
+        printf("%d\n", a);
+	}
+	return 0;
+}
+
+
+//方法2
+int main()
+{
+	int a = 0, b = 0;
+	for (a = 100; a <= 200; a++)
+	{
+		for (b = 2; b < a; b++)
+		{
+			if (0 == a % b)
+				break;
+			if (b >= a / b)
+			{
+				printf("%d\n", a);
+				break;
+			}
+		}
+	}
+	return 0;
+}
+
+
+//计算 1/1-1/2+1/3-1/4+1/5-1/6+...+1/99-1/100
+//法1
+int main()
+{
+	double j = 0, m = 0;   //定义两个变量
+	for (int i = 1; i <= 100; i++)
+	{	
+		m = 1.0 / i;   //计算出1/i的结果，注意必须用1.0不能用1，C语言中被除数与除数必须至少有一个是浮点数，结果才是浮点数
+		if (1 == i % 2)
+			j += m;   //用前面结果加上刚刚计算出的m
+		if (0 == i % 2)
+			j -= m;   //用前面的结果减去m
+	}
+	printf("计算结果是：%f\n", j);   //输出计算结果
+	return 0;
+}
+
+//法2
+int main()
+{
+	double j = 0;
+	for (int i = 1; i <= 100; i++)
+	{	
+		if (1 == i % 2)
+			j += 1.0/i;
+		if (0 == i % 2)
+			j -= 1.0/i;
+	}
+	printf("计算结果是：%f\n", j);
+	return 0;
+}
+
+
+//比较十个数中的最大值
+//法1
+int main()
+{
+	int arr[10] = { 0 };
+	printf("请输入10个正整数：");
+	scanf("%d%d%d%d%d%d%d%d%d%d", &arr[0],&arr[1],&arr[2],&arr[3],&arr[4],&arr[5],&arr[6],&arr[7],&arr[8],&arr[9]);
+
+  int max=arr[0];
+	for (int i = 1; i <= 9; i++)
+	{
+		if (arr[i] > max)
+			max = arr[i];   //若新的数更大，将新的数存放在max变量中
+	}
+	printf("十个数中的最大值：%d\n", max);   //输出最大值
+
+	return 0;
+}
+
+
+//法2
+int main()
+{
+	int arr[10] = { 0 };
+	int max = 0;
+	printf("请输入10个正整数：");
+	for (int a = 0; a <= 9; a++)
+		scanf("%d", &arr[a]);
+	max = arr[0];
+ 
+	for (int i = 1; i <= 9; i++)
+	{
+		if (arr[i] > max)
+			max = arr[i];
+	}
+	printf("十个数中的最大值：%d\n", max);
+
+	return 0;
+}
